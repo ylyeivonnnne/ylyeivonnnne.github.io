@@ -15,14 +15,6 @@
         <guid>http://localhost:1313/categories/ocean-science/</guid>
         <description>&lt;img src="http://localhost:1313/categories/ocean-science/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Ocean Science" /&gt;</description>
         </item>
-        <item>
-        <title>Ocean Science</title>
-        <link>http://localhost:1313/categories/test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/categories/test/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Ocean Science" /&gt;</description>
-        </item>
         
     </channel>
 </rss>
