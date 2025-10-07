@@ -1,0 +1,118 @@
+{{ define "main" }}
+    {{/* 获取特定页面 */}}
+    {{ $aboutPage := .Site.GetPage "/page/about" }}
+    {{ $newsPage := .Site.GetPage "/page/news" }}
+    {{ $projectsPage := .Site.GetPage "/page/projects" }}
+    {{ $educationsPage := .Site.GetPage "/page/educations" }}
+    {{ $awardsPage := .Site.GetPage "/page/awards" }}
+
+    {{/* 1. About - 显示完整内容 */}}
+    {{ with $aboutPage }}
+        {{ if .Content }}
+            <section class="homepage-section">
+                <header class="section-header">
+                    <h2 class="section-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                </header>
+                <div class="section-content">
+                    {{ .Content | markdownify }}
+                </div>
+            </section>
+        {{ end }}
+    {{ end }}
+
+    {{/* 2. News */}}
+    {{ with $newsPage }}
+        {{ if .Content }}
+            <section class="homepage-section">
+                <header class="section-header">
+                    <h2 class="section-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                </header>
+                <div class="section-content">
+                    {{ .Content | truncate 200 "..." | markdownify }}
+                    <p><a href="{{ .RelPermalink }}" class="read-more">Read more →</a></p>
+                </div>
+            </section>
+        {{ end }}
+    {{ end }}
+
+    {{/* 3. Blog Posts - 在news和education之间 */}}
+    {{ $blogPages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($blogPages | intersect $notHidden) }}
+    
+    {{ if gt (len $filtered) 0 }}
+        <section class="homepage-section">
+            <header class="section-header">
+                <h2 class="section-title">RESEARCH PROJECTS</h2>
+            </header>
+            <div class="article-list--compact">
+                {{ range first 5 $filtered }}
+                    {{ partial "article-list/compact" . }}
+                {{ end }}
+            </div>
+            {{ if gt (len $filtered) 5 }}
+                <p><a href="/post/" class="read-more">View all posts →</a></p>
+            {{ end }}
+        </section>
+    {{ end }}
+
+    {{/* 4. Educations - 显示完整内容 */}}
+    {{ with $educationsPage }}
+        {{ if .Content }}
+            <section class="homepage-section">
+                <header class="section-header">
+                    <h2 class="section-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                </header>
+                <div class="section-content">
+                    {{ .Content | markdownify }}
+                </div>
+            </section>
+        {{ end }}
+    {{ end }}
+
+    {{/* 5. Projects */}}
+    {{ with $projectsPage }}
+        {{ if .Content }}
+            <section class="homepage-section">
+                <header class="section-header">
+                    <h2 class="section-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                </header>
+                <div class="section-content">
+                    {{ .Content | truncate 200 "..." | markdownify }}
+                    <p><a href="{{ .RelPermalink }}" class="read-more">Read more →</a></p>
+                </div>
+            </section>
+        {{ end }}
+    {{ end }}
+
+    {{/* 6. Awards */}}
+    {{ with $awardsPage }}
+        {{ if .Content }}
+            <section class="homepage-section">
+                <header class="section-header">
+                    <h2 class="section-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                </header>
+                <div class="section-content">
+                    {{ .Content | truncate 200 "..." | markdownify }}
+                    <p><a href="{{ .RelPermalink }}" class="read-more">Read more →</a></p>
+                </div>
+            </section>
+        {{ end }}
+    {{ end }}
+
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

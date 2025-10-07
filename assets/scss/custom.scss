@@ -104,6 +104,66 @@ html{
 }
 
 
+/* 把紧凑布局的图片移到左边 */
+.article-list--compact article > a {
+    flex-direction: row-reverse !important;
+}
+
+/* 首页sections样式 */
+.homepage-section {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    margin-bottom: 0.1rem; 
+    padding: var(--card-padding);
+
+    .section-header {
+        border-bottom: 2px solid var(--card-separator-color);
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+
+        .section-title {
+            margin: 0;
+            font-size: 1.8rem; /* 标题字体大小 */
+            font-weight: 600;
+
+            a {
+                color: var(--card-text-color-main);
+                text-decoration: none;
+                
+                &:hover {
+                    color: var(--accent-color);
+                }
+            }
+        }
+    }
+
+    .section-content {
+        color: var(--card-text-color-main);
+        line-height: 1.6;
+        font-size: 1.2rem; 
+
+        p {
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem !important;
+        }
+
+        ul, ol {
+            font-size: 1.5rem !important; /* 列表字体 */
+        }
+    }
+
+    .read-more {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        
+        &:hover {
+            color: var(--accent-color-darker);
+        }
+    }
+}
+
 .widget--toc {
     background-color: var(--card-background);
     border-radius: var(--card-border-radius);

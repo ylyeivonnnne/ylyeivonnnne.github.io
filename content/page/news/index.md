@@ -10,9 +10,5 @@ menu:
             icon: rss
 ---
 
-
-# 09.2025
-- I started MPhil program at HKUST in Vislab
-
-# 07.2025
-- 🎓 I graduated from HKUST with First Class Honors!
+- 09.2025 I started MPhil program at HKUST in Vislab
+- 07.2025 🎓 I graduated from HKUST with First Class Honors!
