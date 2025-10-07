@@ -35,6 +35,33 @@
     }
 }
 
+
+
+/* 文章描述/摘要字体大小 */
+.article-header .article-subtitle,
+.article-list .article-subtitle,
+.article-meta .article-description {
+    font-size: 1.5rem; /* Description字体大小 */
+    color: var(--card-text-color-secondary);
+}
+
+/* 博客正文字体大小设置 */
+.article-content {
+    font-size: 0.8rem; /* 整体文章内容字体大小 */
+    line-height: 1.6; /* 行高，影响行间距 */
+}
+
+/* 博客文章的段落 */
+.article-content p {
+    font-size: 1.5rem; /* 段落字体大小（普通文字） */
+}
+
+/* 博客文章的列表 */
+.article-content ul, 
+.article-content ol {
+    font-size: 1.5rem; /* 列表字体大小 */
+}
+
 html{
     ::-webkit-scrollbar {
         width: 20px;

@@ -19,12 +19,59 @@
 </description>
         </item>
         <item>
-        <title>Projects</title>
-        <link>http://localhost:1313/archives/</link>
-        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        <title>Awards</title>
+        <link>http://localhost:1313/awards/</link>
+        <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
-        <description></description>
+        <guid>http://localhost:1313/awards/</guid>
+        <description>&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dean&amp;rsquo;s List&lt;/strong&gt; - HKUST (2024)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Academic Excellence Award&lt;/strong&gt; - Data Science Program (2023)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Outstanding Research Project&lt;/strong&gt; - Final Year Project (2025)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Best Poster Award&lt;/strong&gt; - HKUST Student Research Conference (2024)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HKUST Scholarship&lt;/strong&gt; - Academic Merit (2022-2025)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Excellence Scholarship&lt;/strong&gt; - Outstanding Performance (2023)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Educations</title>
+        <link>http://localhost:1313/educations/</link>
+        <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/educations/</guid>
+        <description>&lt;h2 id=&#34;mphil-in-computer-science-and-engineering&#34;&gt;MPhil in Computer Science and Engineering
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;The Hong Kong University of Science and Technology (HKUST)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clear Water Bay, HK · Sept 2025 - Present&lt;/li&gt;
+&lt;li&gt;Supervisor: &lt;a class=&#34;link&#34; href=&#34;http://huamin.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Prof. Huamin Qu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Research focus: Data Visualization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;bsc-in-data-science-and-technology&#34;&gt;BSc in Data Science and Technology
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;The Hong Kong University of Science and Technology (HKUST)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clear Water Bay, HK · Sept 2021 - May 2025&lt;/li&gt;
+&lt;li&gt;Minor: Business&lt;/li&gt;
+&lt;li&gt;First Class Honors&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>News</title>
+        <link>http://localhost:1313/news/</link>
+        <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/news/</guid>
+        <description>&lt;h1 id=&#34;092025&#34;&gt;09.2025
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;I started MPhil program at HKUST in Vislab&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;072025&#34;&gt;07.2025
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;🎓 I graduated from HKUST with First Class Honors!&lt;/li&gt;
+&lt;/ul&gt;
+</description>
         </item>
         <item>
         <title>Projects</title>

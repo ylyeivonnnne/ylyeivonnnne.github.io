@@ -11,7 +11,7 @@ links:
     image: brand-linkedin-blue.png
 menu:
     main: 
-        weight: -50
+        weight: -30
         params:
             icon: link
 

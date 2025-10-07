@@ -227,11 +227,11 @@ menu:
           params:
               icon: brand-linkedin
         
-        # - identifier: resume
-        #     name: Resume
-        #     url: /files/YE_Yilin_Resume.pdf
-        #     params:
-        #         icon: file
+        - identifier: resume
+          name: Resume
+          url: /assets/files/resume.pdf
+          params:
+              icon: file
 
 related:
     includeNewer: true
