@@ -11,7 +11,7 @@ DefaultContentLanguage: en
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
 hasCJKLanguage: false
-favicon: /favicon.ico 
+# favicon: /favicon.ico
 
 languages:
     en:
@@ -21,21 +21,13 @@ languages:
         params:
             sidebar:
                 subtitle: MPhil @HKUST
-    zh-cn:
-        languageName: 简体中文
-        title: 叶伊霖
-        weight: 2
-        params:
-            sidebar:
-                subtitle: 香港科技大学 哲学硕士在读
-    # ar:
-    #     languageName: عربي
-    #     languagedirection: rtl
-    #     title: موقع تجريبي
-    #     weight: 3
+    # zh-cn:
+    #     languageName: 简体中文
+    #     title: 叶伊霖
+    #     weight: 2
     #     params:
     #         sidebar:
-    #             subtitle: وصف تجريبي
+    #             subtitle: 香港科技大学 哲学硕士在读
 
 services:
     # Change it to your Disqus shortname before using
@@ -57,7 +49,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+    favicon: /favicon.png
 
     footer:
         since: 2025
@@ -68,7 +60,7 @@ params:
         lastUpdated: Oct 06, 2025 15:40 HKT
 
     sidebar:
-        emoji: 🍥
+        # emoji: 🍥
         subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         avatar:
             enabled: true
@@ -78,9 +70,10 @@ params:
     article:
         math: false
         toc: true
-        readingTime: true
+        readingTime: false
+        translateInArticle: false
         license:
-            enabled: true
+            enabled: false
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
@@ -222,11 +215,23 @@ menu:
           params:
               icon: brand-github
 
-        - identifier: twitter
-          name: Twitter
-          url: https://twitter.com
+        - identifier: mail
+          name: Send Email
+          url: mailto:yyeaz@connect.ust.hk
           params:
-              icon: brand-twitter
+              icon: email
+
+        - identifier: linkedin
+          name: LinkedIn
+          url: https://www.linkedin.com/in/yilin-ye-811ab0252/
+          params:
+              icon: brand-linkedin
+        
+        # - identifier: resume
+        #     name: Resume
+        #     url: /files/YE_Yilin_Resume.pdf
+        #     params:
+        #         icon: file
 
 related:
     includeNewer: true
