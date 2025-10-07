@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on YE Yilin</title>
+        <link>http://localhost:1313/categories/</link>
+        <description>Recent content in Categories on YE Yilin</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>YE Yilin</copyright>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Ocean Science</title>
+        <link>http://localhost:1313/categories/ocean-science/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/ocean-science/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/ocean-science/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Ocean Science" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
