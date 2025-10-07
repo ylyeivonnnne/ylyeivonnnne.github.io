@@ -43,6 +43,8 @@
   </url><url>
     <loc>http://localhost:1313/contacts/</loc>
   </url><url>
+    <loc>http://localhost:1313/categories/test/</loc>
+  </url><url>
     <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>
