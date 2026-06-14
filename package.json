@@ -1,0 +1,9 @@
+{
+  "name": "ylyeivonnnne.github.io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "validate": "node scripts/validate-site.mjs"
+  }
+}
