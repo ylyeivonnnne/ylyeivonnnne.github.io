@@ -103,7 +103,7 @@ export const siteData = {
       links: [
         {
           label: "DOI",
-          href: "https://doi.org/10.48550/arXiv.2604.09241",
+          href: "https://doi.org/10.1109/PacificVis68791.2026.00030",
           external: true
         }
       ]

@@ -89,6 +89,33 @@ const appendHighlightedList = (node, items, highlightedItems = []) => {
   });
 };
 
+const createArrowUpRightIcon = () => {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  svg.classList.add("external-link-icon");
+
+  const corner = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  corner.setAttribute("d", "M7 7h10v10");
+
+  const arrow = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  arrow.setAttribute("d", "M7 17 17 7");
+
+  svg.append(corner, arrow);
+  return svg;
+};
+
+const appendTextLinkContent = (anchor, link) => {
+  const label = document.createElement("span");
+  label.textContent = link.label;
+  anchor.appendChild(label);
+
+  if (link.external) {
+    anchor.appendChild(createArrowUpRightIcon());
+  }
+};
+
 const getFilteredPapers = () => {
   const papers = siteData.researchPapers ?? [];
   if (publicationState.filter === "all") return papers;
@@ -320,7 +347,7 @@ const renderPublications = () => {
       paper.links.forEach((link) => {
         const anchor = document.createElement("a");
         anchor.href = link.href;
-        anchor.textContent = link.label;
+        appendTextLinkContent(anchor, link);
         if (link.external) {
           anchor.target = "_blank";
           anchor.rel = "noreferrer";
@@ -410,7 +437,7 @@ const renderExperience = () => {
       item.links.forEach((link) => {
         const anchor = document.createElement("a");
         anchor.href = link.href;
-        anchor.textContent = link.label;
+        appendTextLinkContent(anchor, link);
         if (link.external) {
           anchor.target = "_blank";
           anchor.rel = "noreferrer";
