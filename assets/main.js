@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260829-title-links-hero-photo";
+import { siteData } from "./site-data.js?v=20260831-project-data-fix";
 
 document.documentElement.classList.add("js-enhanced");
 

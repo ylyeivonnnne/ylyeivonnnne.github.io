@@ -76,6 +76,6 @@ assert(Array.isArray(siteData.researchFocus), "Research focus list must be an ar
 assert(Array.isArray(siteData.news), "News list must be an array");
 assert(Array.isArray(siteData.researchPapers), "Research papers must be an array");
 assert(siteData.researchPapers.length >= 1, "Research section needs at least one paper");
-assert(siteData.experienceItems.length === 3, "Experience list must include three items");
+assert(siteData.experienceItems.length >= 3, "Experience list must include at least three items");
 
 console.log("Validation passed for static site structure.");

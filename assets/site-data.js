@@ -164,6 +164,50 @@ export const siteData = {
   ],
   experienceItems: [
     {
+      title: "QEF VR Team",
+      org: "Lab Project",
+      period: "05/2026 – 08/2026",
+      location: "Hong Kong",
+      supervisor: "Huamin Qu, Chair Professor at HKUST",
+      featured: false,
+      image: {
+        src: "/assets/images/paper-placeholder.svg",
+        alt: "Project preview placeholder"
+      },
+      tags: ["VR", "Education", "LLM"],
+      description:
+        "We developed a VR-based English learning system that leverages LLMs to provide real-time feedback and assistance to students.",
+      // links: [
+      //   {
+      //     label: "DOI",
+      //     href: "https://doi.org/10.48550/arXiv.2506.00855",
+      //     external: true
+      //   }
+      // ]
+    },
+    {
+      title: "Digital Twin",
+      org: "Lab Project",
+      period: "09/2025 – now",
+      location: "Hong Kong",
+      supervisor: "Huamin Qu, Chair Professor at HKUST",
+      featured: false,
+      image: {
+        src: "/assets/images/paper-placeholder.svg",
+        alt: "Project preview placeholder"
+      },
+      tags: ["VR"],
+      description:
+        "Developing a VR digital twin game on typhoon for public about TKO waterfront.",
+      // links: [
+      //   {
+      //     label: "DOI",
+      //     href: "https://doi.org/10.48550/arXiv.2506.00855",
+      //     external: true
+      //   }
+      // ]
+    },
+    {
       title: "Towards Large-Scale Vision-Language Models in Medicine",
       org: "Final Year Project",
       period: "06/2024 – 05/2025",
@@ -213,7 +257,14 @@ export const siteData = {
       },
       tags: ["Machine Learning", "NLP"],
       description:
-        "Worked on experimental design and result analysis for a framework that traces the origin of AI-generated content from large language models."
+        "Worked on experimental design and result analysis for a framework that traces the origin of AI-generated content from large language models.",
+      links: [
+        {
+          label: "DOI",
+          href: "https://aclanthology.org/2024.emnlp-main.681/",
+          external: true
+        }
+      ]
     }
   ],
   educationItems: [
