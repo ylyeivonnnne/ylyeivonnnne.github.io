@@ -4,9 +4,9 @@ export const siteData = {
     kicker: "叶 伊霖",
     role: "MPhil in CSE at HKUST",
     summary:
-      "I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, working in VisLab and supervised by Prof. Huamin Qu. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.",
+      "I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, VisLab, supervised by Prof. Huamin Qu. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.",
     summaryHtml:
-      'I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, working in <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a> and supervised by <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.'
+      'I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a>, supervised by <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.'
   },
   availabilityNotice:
     "I am on the job market and actively looking for PhD opportunities from Fall 2026.",
@@ -57,13 +57,36 @@ export const siteData = {
   researchFocus: [],
   news: [
     {
+      date: "08/2026",
+      title: "One first author paper was accepted to UIST 2026!",
+      links: [
+        {
+          text: "paper",
+          href: "#paper-regular"
+        }
+      ],
+      detail:
+        "RegulAR: Graph-Grounded Error Recognition and Assistance for Procedural Tasks in AR was accepted as a regular paper."
+    },
+    {
+      date: "04/2026",
+      title: "Happy to present LandSAR in PacificVis 2026, Sydney",
+      links: [
+        {
+          text: "LandSAR",
+          href: "#paper-landsar"
+        }
+      ],
+      detail: "Presented LandSAR at PacificVis 2026 in Sydney."
+    },
+    {
       date: "09/2025",
       title: "Started the MPhil program at HKUST",
       detail: "Joined Computer Science and Engineering at HKUST and began work in VisLab under Prof. Huamin Qu."
     },
     {
       date: "07/2025",
-      title: "Graduated from HKUST with First Class Honors",
+      title: "Received a BSc in Data Science and Technology from HKUST with First Class Honors",
       detail: "Completed the BSc in Data Science and Technology at HKUST with a minor in Business."
     }
   ],
@@ -77,6 +100,36 @@ export const siteData = {
   ],
   researchPapers: [
     {
+      id: "paper-regular",
+      title: "RegulAR: Graph-Grounded Error Recognition and Assistance for Procedural Tasks in AR",
+      authors: [
+        "Yi-Lin YE",
+        "Jindu Wang",
+        "Hiu Tong Wong",
+        "Shuchang Xu",
+        "Huamin Qu",
+        "Wong Kam-Kwai"
+      ],
+      highlightedAuthors: ["Yi-Lin YE"],
+      venue: "UIST 2026",
+      date: "2026",
+      type: "conference",
+      typeLabel: "Conference",
+      featured: true,
+      image: {
+        src: "/assets/images/uist26_thumbnail.png",
+        alt: "A woman making candle with the help of RegulAR"
+      },
+      links: [
+        {
+          label: "arXiv",
+          href: "https://arxiv.org/abs/2608.26715",
+          external: true
+        }
+      ]
+    },
+    {
+      id: "paper-landsar",
       title: "LandSAR: Visceralizing Landslide Data for Enhanced Situational Awareness in Immersive Analytics",
       authors: [
         "Wong Kam-Kwai",
@@ -91,11 +144,11 @@ export const siteData = {
         "Leni Yang"
       ],
       highlightedAuthors: ["Yi-Lin YE"],
-      venue: "PacificVis",
+      venue: "PacificVis 2026",
       date: "2026",
-      type: "preprint",
-      typeLabel: "Preprint",
-      featured: true,
+      type: "conference",
+      typeLabel: "Conference",
+      featured: false,
       image: {
         src: "/assets/images/pvis26.png?v=20260614",
         alt: "Preview image for LandSAR paper"
@@ -113,7 +166,7 @@ export const siteData = {
     {
       title: "Towards Large-Scale Vision-Language Models in Medicine",
       org: "Final Year Project",
-      period: "06/2024 – 04/2025",
+      period: "06/2024 – 05/2025",
       location: "Hong Kong",
       supervisor: "Hao Chen, Assistant Professor at HKUST",
       featured: true,
@@ -172,18 +225,18 @@ export const siteData = {
       schoolIcon: "hkust"
     },
     {
-      degree: "BSc in Data Science and Technology",
-      institution: "The Hong Kong University of Science and Technology",
-      period: "09/2021 – 05/2025",
-      location: "Hong Kong",
-      schoolIcon: "hkust"
-    },
-    {
       degree: "Mobility Student in the Department of Computer Science",
       institution: "ETH Zurich",
       period: "09/2023 – 02/2024",
       location: "Zurich, Switzerland",
       schoolIcon: "eth"
+    },
+    {
+      degree: "BSc in Data Science and Technology with a minor in Business",
+      institution: "The Hong Kong University of Science and Technology",
+      period: "09/2021 – 05/2025",
+      location: "Hong Kong",
+      schoolIcon: "hkust"
     }
   ],
   awardItems: [

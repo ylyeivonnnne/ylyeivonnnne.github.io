@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260614-project-copy-data";
+import { siteData } from "./site-data.js?v=20260829-title-links-hero-photo";
 
 document.documentElement.classList.add("js-enhanced");
 
@@ -89,31 +89,125 @@ const appendHighlightedList = (node, items, highlightedItems = []) => {
   });
 };
 
-const createArrowUpRightIcon = () => {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("aria-hidden", "true");
-  svg.setAttribute("focusable", "false");
-  svg.classList.add("external-link-icon");
-
-  const corner = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  corner.setAttribute("d", "M7 7h10v10");
-
-  const arrow = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  arrow.setAttribute("d", "M7 17 17 7");
-
-  svg.append(corner, arrow);
-  return svg;
+const getPaperByAnchor = (href) => {
+  if (!href?.startsWith("#paper-")) return null;
+  return (siteData.researchPapers ?? []).find((paper) => paper.id === href.slice(1)) ?? null;
 };
 
-const appendTextLinkContent = (anchor, link) => {
-  const label = document.createElement("span");
-  label.textContent = link.label;
-  anchor.appendChild(label);
+const getPrimaryLink = (item) => item.links?.find((link) => link.href) ?? null;
 
-  if (link.external) {
-    anchor.appendChild(createArrowUpRightIcon());
+const appendLinkedTitle = (heading, item, className) => {
+  const primaryLink = getPrimaryLink(item);
+  if (!primaryLink) {
+    heading.textContent = item.title;
+    return;
   }
+
+  const anchor = document.createElement("a");
+  anchor.className = className;
+  anchor.href = primaryLink.href;
+  anchor.textContent = item.title;
+  anchor.setAttribute("aria-label", `${item.title} (${primaryLink.label})`);
+  if (primaryLink.external) {
+    anchor.target = "_blank";
+    anchor.rel = "noreferrer";
+  }
+  heading.appendChild(anchor);
+};
+
+const getNewsPaperPreview = () => {
+  let preview = document.getElementById("news-paper-preview");
+  if (preview) return preview;
+
+  preview = document.createElement("div");
+  preview.id = "news-paper-preview";
+  preview.className = "news-paper-preview";
+  preview.setAttribute("aria-hidden", "true");
+
+  const image = document.createElement("img");
+  image.alt = "";
+  preview.appendChild(image);
+  document.body.appendChild(preview);
+  return preview;
+};
+
+const positionNewsPaperPreview = (anchor, preview) => {
+  const rect = anchor.getBoundingClientRect();
+  const gap = 10;
+  const margin = 12;
+  const previewWidth = preview.offsetWidth;
+  const previewHeight = preview.offsetHeight;
+  const centeredLeft = rect.left + rect.width / 2 - previewWidth / 2;
+  const left = Math.min(
+    window.innerWidth - previewWidth - margin,
+    Math.max(margin, centeredLeft)
+  );
+  const preferredTop = rect.top - previewHeight - gap;
+  const top =
+    preferredTop > margin
+      ? preferredTop
+      : Math.min(window.innerHeight - previewHeight - margin, rect.bottom + gap);
+
+  preview.style.left = `${left}px`;
+  preview.style.top = `${Math.max(margin, top)}px`;
+};
+
+const showNewsPaperPreview = (anchor) => {
+  const src = anchor.dataset.previewSrc;
+  if (!src) return;
+
+  const preview = getNewsPaperPreview();
+  const image = preview.querySelector("img");
+  image.src = src;
+  image.alt = anchor.dataset.previewAlt ?? "";
+  positionNewsPaperPreview(anchor, preview);
+  preview.classList.add("is-visible");
+};
+
+const hideNewsPaperPreview = () => {
+  document.getElementById("news-paper-preview")?.classList.remove("is-visible");
+};
+
+const appendLinkedText = (node, text, links = []) => {
+  let cursor = 0;
+  links.forEach((link) => {
+    if (!link.text || !link.href) return;
+    const index = text.indexOf(link.text, cursor);
+    if (index === -1) return;
+    node.append(document.createTextNode(text.slice(cursor, index)));
+    const anchor = document.createElement("a");
+    anchor.href = link.href;
+    anchor.textContent = link.text;
+    if (link.href.startsWith("#paper-")) {
+      const paper = getPaperByAnchor(link.href);
+      if (paper?.image?.src) {
+        anchor.classList.add("news-paper-link");
+        anchor.dataset.previewSrc = paper.image.src;
+        anchor.dataset.previewAlt = paper.image.alt ?? paper.title;
+        anchor.addEventListener("mouseenter", () => showNewsPaperPreview(anchor));
+        anchor.addEventListener("focus", () => showNewsPaperPreview(anchor));
+        anchor.addEventListener("mouseleave", hideNewsPaperPreview);
+        anchor.addEventListener("blur", hideNewsPaperPreview);
+      }
+      anchor.addEventListener("click", (event) => {
+        hideNewsPaperPreview();
+        const targetId = link.href.slice(1);
+        if (!document.getElementById(targetId)) {
+          publicationState.filter = "all";
+          renderPublications();
+        }
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        event.preventDefault();
+        window.history.pushState(null, "", link.href);
+        target.scrollIntoView({ block: "start" });
+        target.focus({ preventScroll: true });
+      });
+    }
+    node.appendChild(anchor);
+    cursor = index + link.text.length;
+  });
+  node.append(document.createTextNode(text.slice(cursor)));
 };
 
 const getFilteredPapers = () => {
@@ -189,7 +283,7 @@ const renderNews = () => {
     date.textContent = item.date;
     const summary = document.createElement("p");
     summary.className = "news-summary";
-    summary.textContent = item.title;
+    appendLinkedText(summary, item.title, item.links ?? []);
     article.append(date, summary);
     container.appendChild(article);
   });
@@ -282,6 +376,10 @@ const renderPublications = () => {
   papers.forEach((paper) => {
     const article = document.createElement("article");
     article.className = "publication-card";
+    if (paper.id) {
+      article.id = paper.id;
+      article.tabIndex = -1;
+    }
 
     const meta = document.createElement("div");
     meta.className = "publication-meta";
@@ -308,7 +406,7 @@ const renderPublications = () => {
     body.className = "publication-body";
 
     const title = document.createElement("h3");
-    title.textContent = paper.title;
+    appendLinkedTitle(title, paper, "publication-title-link");
 
     const authors = document.createElement("p");
     authors.className = "publication-authors";
@@ -339,22 +437,6 @@ const renderPublications = () => {
         tags.appendChild(li);
       });
       body.appendChild(tags);
-    }
-
-    if (paper.links?.length) {
-      const links = document.createElement("div");
-      links.className = "publication-links";
-      paper.links.forEach((link) => {
-        const anchor = document.createElement("a");
-        anchor.href = link.href;
-        appendTextLinkContent(anchor, link);
-        if (link.external) {
-          anchor.target = "_blank";
-          anchor.rel = "noreferrer";
-        }
-        links.appendChild(anchor);
-      });
-      body.appendChild(links);
     }
 
     article.append(meta, figure, body);
@@ -407,7 +489,7 @@ const renderExperience = () => {
     body.className = "project-body";
 
     const title = document.createElement("h3");
-    title.textContent = item.title;
+    appendLinkedTitle(title, item, "project-title-link");
 
     const context = document.createElement("p");
     context.className = "project-context";
@@ -429,22 +511,6 @@ const renderExperience = () => {
         tags.appendChild(li);
       });
       body.appendChild(tags);
-    }
-
-    if (item.links?.length) {
-      const links = document.createElement("div");
-      links.className = "project-links";
-      item.links.forEach((link) => {
-        const anchor = document.createElement("a");
-        anchor.href = link.href;
-        appendTextLinkContent(anchor, link);
-        if (link.external) {
-          anchor.target = "_blank";
-          anchor.rel = "noreferrer";
-        }
-        links.appendChild(anchor);
-      });
-      body.appendChild(links);
     }
 
     article.append(meta, figure, body);
