@@ -1,0 +1,199 @@
+% !TEX program = pdflatex
+% One-page CV based on the typography and structure of the original resume.pdf.
+% Compile from the repository root with:
+%   latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=local-cv local-cv/yilin_ye_cv.tex
+
+\documentclass[9pt,a4paper]{extarticle}
+
+\usepackage[a4paper,top=1.05cm,bottom=0.6cm,left=1.1cm,right=1.1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+\usepackage{microtype}
+\usepackage{anyfontsize}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{1em}
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Ye Yilin - Curriculum Vitae},
+  pdfauthor={Ye Yilin},
+  pdfsubject={Academic curriculum vitae},
+  colorlinks=false,
+  pdfborder={0 0 0}
+}
+
+% Original-CV section treatment: bold uppercase label and a black rule.
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0pt}{}
+  [\vspace{0.6pt}\titlerule]
+\titlespacing*{\section}{0pt}{2pt}{2pt}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  label=\textbullet,
+  itemsep=0pt,
+  topsep=0.5pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+% Two-line entry matching the original: bold title/location, italic role/date.
+\newcommand{\cventry}[5]{%
+  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{5.0cm}@{}}
+    \textbf{#1} & \if\relax\detokenize{#2}\relax #4\else\textbf{#2}\fi \\
+    \textit{#3} & \if\relax\detokenize{#2}\relax\else #4\fi
+  \end{tabularx}
+  #5\par\vspace{0.8pt}
+}
+
+\newcommand{\awardentry}[3]{%
+  \begin{tabularx}{\textwidth}{@{}p{0.55cm}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{5.5cm}@{}}
+    \textbullet & \textbf{#1} & #2\if\relax\detokenize{#3}\relax\else, #3\fi
+  \end{tabularx}\par
+}
+
+% Publication entry with title, authors, and venue on separate lines.
+\newcommand{\publicationentry}[5]{%
+  \begin{tabularx}{\textwidth}{@{}p{0.55cm}X@{}}
+    #1. & \textbf{#2}\if\relax\detokenize{#5}\relax\else\enspace\mbox{#5}\fi \\
+       & #3 \\
+       & \textit{#4}
+  \end{tabularx}\par\vspace{2pt}
+}
+
+\newcommand{\submissionentry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}p{0.55cm}X@{}}
+    #1. & \textbf{#2} \\
+        & #3 author; \textit{#4; under review.}
+  \end{tabularx}\par\vspace{2pt}
+}
+
+\begin{document}
+\pagestyle{empty}
+\fontsize{9.5}{10.5}\selectfont
+
+\begin{center}
+  {\fontsize{19}{21}\selectfont\bfseries YE YILIN}\\[4pt]
+  \href{mailto:yyeaz@connect.ust.hk}{yyeaz@connect.ust.hk}
+  \enspace\textbar\enspace (+852) 5441 5236
+  \enspace\textbar\enspace (+86) 139 2914 4805\\[2pt]
+  \href{https://ylyeivonnnne.github.io}{ylyeivonnnne.github.io}
+  \enspace\textbar\enspace
+  \href{https://github.com/ylyeivonnnne}{GitHub}
+  \enspace\textbar\enspace
+  \href{https://www.linkedin.com/in/yilin-ye-811ab0252/}{LinkedIn}
+  \enspace\textbar\enspace
+  \href{https://scholar.google.com/citations?hl=en&user=fhwz3soAAAAJ}{Google Scholar}
+  \enspace\textbar\enspace
+  \href{https://orcid.org/0009-0000-9986-4420}{ORCID}
+\end{center}
+\vspace{-5pt}
+
+\section{PROFILE}
+
+MPhil student in Computer Science and Engineering at HKUST \href{http://vis.cse.ust.hk/index.html}{VisLab}, supervised by \href{http://huamin.org}{Prof. Huamin Qu}. My research lies at the intersection of HCI and AI, with interests in human-AI interaction, intelligent interactive systems, and immersive and situated interfaces. I am particularly interested in how AI can enable adaptive human-AI interaction across physical and digital environments. Seeking PhD opportunities starting in September 2027.
+
+\section{EDUCATION}
+
+\cventry{Hong Kong University of Science and Technology}{Hong Kong}{MPhil in Computer Science and Engineering; CGA: 4.2/4.3}{09/2025 -- 08/2027 (expected)}{}
+
+\cventry{Swiss Federal Institute of Technology Zurich (ETH Zurich)}{Zurich, Switzerland}{Mobility Student in Department of Computer Science}{09/2023 -- 02/2024}{}
+
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{Hong Kong University of Science and Technology} & \textbf{Hong Kong} \\
+\textit{BSc in Data Science and Technology, minor in Business; First Class Honors; CGA: 3.804/4.3} & 09/2021 -- 05/2025
+\end{tabularx}\par\vspace{0.8pt}
+
+\section{PUBLICATIONS}
+
+\publicationentry{1}
+  {RegulAR: Graph-Grounded Error Recognition and Assistance for Procedural Tasks in AR}
+  {\textbf{Yi-Lin Ye}, Jindu Wang, Hiu Tung Wong, Shuchang Xu, Huamin Qu, and Wong Kam-Kwai}
+  {To appear in the Proceedings of the 39th Annual ACM Symposium on User Interface Software and Technology (UIST 2026).}
+  % DOI hidden until formal publication: https://doi.org/10.1145/3830398.3830593
+  {\href{https://arxiv.org/abs/2608.26715}{[arXiv]}}
+
+\begin{itemize}[leftmargin=0.55cm]
+  \item Developed an intelligent AR assistance system combining structured task representations with multimodal vision-language reasoning to infer users' task states, recognize procedural errors, and provide situated recovery guidance.
+\end{itemize}
+
+\publicationentry{2}
+  {LandSAR: Visceralizing Landslide Data for Enhanced Situational Awareness in Immersive Analytics}
+  {Wong Kam-Kwai, \textbf{Yi-Lin Ye}, Wai Tong, Haobo Li, Kentaro Takahira, Aastha Bhatta, Sunil Poudyal, Charles Wang Wai Ng, Huamin Qu, and Leni Yang}
+  {2026 IEEE 19th Pacific Visualization Conference (PacificVis).}
+  {\href{https://doi.org/10.1109/PacificVis68791.2026.00030}{[DOI]}}
+
+\textbf{Manuscripts Under Review}\par\vspace{2pt}
+\submissionentry{3}
+  {Situated Physical Analogies: Visceralizing Spatial Values by Anchoring Data to Everyday Objects and Spaces}
+  {Second}{Submitted to CHI 2027}
+\submissionentry{4}
+  {OAIV: Orphaning-Aware Annotation Authoring for Immersive Video}
+  {Third}{Submitted to CHI 2027}
+\submissionentry{5}
+  {InsightRAG: Aggregating Distributed Scholarly Judgments for Scientific Survey Generation}
+  {Third}{Submitted to ACL Rolling Review (August 2026)}
+
+\section{RESEARCH EXPERIENCE}
+
+\cventry{QEF VR Team}{}{HKUST VisLab}{05/2026 -- 08/2026}{
+  \begin{itemize}\item Developed an immersive English-learning system integrating LLM-powered assistance with VR interaction to provide context-aware, real-time support during interactive learning activities.\end{itemize}}
+
+\cventry{Digital Twin}{}{HKUST VisLab}{09/2025 -- present}{
+  \begin{itemize}\item Developing an immersive VR digital-twin experience using interactive spatial representations to communicate typhoon impacts at the Tseung Kwan O waterfront to non-expert users.\end{itemize}}
+
+\cventry{Towards Large-Scale Vision-Language Models in Medicine \normalfont\href{https://arxiv.org/pdf/2506.00855}{[arXiv]}}{}{Final Year Project}{06/2024 -- 05/2025}{
+  \begin{itemize}\item Developed a multimodal retrieval-augmented generation framework for a generalist medical foundation model, supporting pathology and radiology visual question answering and radiology report generation; supervised by Hao Chen.\end{itemize}}
+
+% Hidden entries retained for future use.
+% \cventry{Knowledge Discovery over Database}{Hong Kong}{Undergraduate Research Opportunity}{02/2024 -- 05/2024}{
+%   \begin{itemize}\item Implemented NARM for session-based recommendation and user-preference prediction; supervised by Raymond Chi-Wing Wong.\end{itemize}}
+% 
+% \cventry{Trustworthy Machine Learning}{Hong Kong}{Undergraduate Research Opportunity}{06/2023 -- 08/2023}{
+%   \begin{itemize}\item Contributed experimental design and analysis to a framework for tracing AI-generated content from LLMs; supervised by Minhao Cheng.\end{itemize}}
+% 
+
+\section{TEACHING EXPERIENCE}
+
+\cventry{COMP 6411D Data Visualization}{Hong Kong}{Teaching Assistant, HKUST; Lecturer: \href{https://narechania.com}{Arpit Narechania}}{09/2026 -- 12/2026}{}
+\cventry{COMP 4462 Data Visualization}{Hong Kong}{Teaching Assistant, HKUST; Lecturer: \href{https://narechania.com}{Arpit Narechania}}{02/2026 -- 05/2026}{}
+
+\section{ACTIVITIES}
+
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+  \textbf{Hall Tutor} & \textbf{Hong Kong} \\
+  \textbullet\enspace Supported undergraduate residents and organized community activities. & 08/2025 -- present
+\end{tabularx}\par\vspace{0.8pt}
+
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+  \textbf{HKUST Student Ambassador Program} & \textbf{Hong Kong} \\
+  \textbullet\enspace Student Ambassador & 01/2024 -- 05/2025
+\end{tabularx}\par\vspace{0.8pt}
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+  \textbf{Peer Companions} & \textbf{Hong Kong} \\
+  \textbullet\enspace Peer Companion in Dean of Students' Office & 12/2022 -- 05/2025
+\end{tabularx}\par\vspace{0.8pt}
+
+\section{HONORS AND AWARDS}
+
+\awardentry{First Class Honors}{HKUST}{2025}
+
+\awardentry{University's Scholarship Scheme for Continuing Undergraduate Students}{HKUST}{2023/24, 2024/25}
+\awardentry{HKSAR Government Scholarship Fund - Reaching Out Award}{HKSAR Government}{2023/24}
+\awardentry{Dean's List}{HKUST}{2021/22 -- 2024/25}
+% \awardentry{Best Teamwork Individual Award in Student Partnership Co-creating \mbox{Education 4.0 Program}}{HKUST}{06/2022}
+
+\section{SKILLS}
+
+\textbf{Programming \& Tools:} Python / C++ / MATLAB / R / PyTorch / TensorFlow / Git / Tableau / Codex\\
+\textbf{XR:} Unity / Meta Quest 3 / Apple Vision Pro
+\hfill\textbf{Languages:} English / Mandarin / Cantonese
+
+\end{document}
