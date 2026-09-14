@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260903-teaching-assistant";
+import { siteData } from "./site-data.js?v=20260914-featured-preview";
 
 document.documentElement.classList.add("js-enhanced");
 
@@ -158,6 +158,7 @@ const showNewsPaperPreview = (anchor) => {
 
   const preview = getNewsPaperPreview();
   const image = preview.querySelector("img");
+  image.onload = () => positionNewsPaperPreview(anchor, preview);
   image.src = src;
   image.alt = anchor.dataset.previewAlt ?? "";
   positionNewsPaperPreview(anchor, preview);
@@ -532,7 +533,6 @@ const renderEducation = () => {
         <div class="education-school">
           <div>
             <p class="education-institution">${item.institution}</p>
-            <p class="education-location">${item.location}</p>
           </div>
         </div>
         <h3>${item.degree}</h3>

@@ -148,7 +148,7 @@ export const siteData = {
       date: "2026",
       type: "conference",
       typeLabel: "Conference",
-      featured: false,
+      featured: true,
       image: {
         src: "/assets/images/pvis26.png?v=20260614",
         alt: "Preview image for LandSAR paper"
@@ -169,7 +169,7 @@ export const siteData = {
       period: "05/2026 – 08/2026",
       location: "Hong Kong",
       supervisor: "Huamin Qu, Chair Professor at HKUST",
-      featured: false,
+      featured: true,
       image: {
         src: "/assets/images/paper-placeholder.svg",
         alt: "Project preview placeholder"
@@ -191,7 +191,7 @@ export const siteData = {
       period: "09/2025 – present",
       location: "Hong Kong",
       supervisor: "Huamin Qu, Chair Professor at HKUST",
-      featured: false,
+      featured: true,
       image: {
         src: "/assets/images/paper-placeholder.svg",
         alt: "Project preview placeholder"

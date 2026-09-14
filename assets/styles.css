@@ -734,6 +734,7 @@ h1 {
   font-weight: inherit;
   text-decoration: underline;
   text-decoration-color: currentColor;
+  text-decoration-skip-ink: none;
   text-underline-offset: 0.16em;
   transition: text-decoration-thickness 180ms ease;
 }
@@ -766,7 +767,7 @@ h1 {
 .news-paper-preview img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: auto;
   border-radius: calc(var(--panel-radius) - 2px);
   object-fit: contain;
   background: var(--bg-strong);
@@ -1095,7 +1096,9 @@ h1 {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(13rem, 0.78fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "education awards" "teaching awards";
+  grid-template-rows: auto 1fr;
   gap: clamp(0.85rem, 1.15vw, 1rem);
   align-items: stretch;
   width: 100%;
@@ -1105,6 +1108,18 @@ h1 {
 
 .experience-grid .section {
   padding-top: 0;
+}
+
+.experience-grid #education {
+  grid-area: education;
+}
+
+.experience-grid #teaching {
+  grid-area: teaching;
+}
+
+.experience-grid #awards {
+  grid-area: awards;
 }
 
 .experience-grid .split-section {
@@ -1136,7 +1151,6 @@ h1 {
 
 .education-list {
   display: grid;
-  flex: 1;
   gap: 0;
 }
 
@@ -1147,8 +1161,7 @@ h1 {
 }
 
 .education-period,
-.education-institution,
-.education-location {
+.education-institution {
   margin: 0;
 }
 
@@ -1202,13 +1215,6 @@ h1 {
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.28;
-}
-
-.education-location {
-  margin-top: 0.15rem;
-  color: var(--muted);
-  font-size: 0.74rem;
-  line-height: 1.35;
 }
 
 .education-item h3 {
@@ -1364,6 +1370,8 @@ html.js-enhanced .section-observed.is-visible {
     width: 100%;
     margin-inline: 0;
     grid-template-columns: 1fr;
+    grid-template-areas: "education" "teaching" "awards";
+    grid-template-rows: auto;
     gap: 1.25rem;
   }
 
