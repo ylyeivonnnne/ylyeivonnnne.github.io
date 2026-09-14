@@ -9,7 +9,7 @@ export const siteData = {
       'I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a>, supervised by <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.'
   },
   availabilityNotice:
-    "I am on the job market and actively looking for PhD opportunities from Fall 2026.",
+    "I am on the job market and actively looking for PhD opportunities from September 2027.",
   heroLinks: [
     {
       label: "Email",
@@ -188,7 +188,7 @@ export const siteData = {
     {
       title: "Digital Twin",
       org: "Lab Project",
-      period: "09/2025 – now",
+      period: "09/2025 – present",
       location: "Hong Kong",
       supervisor: "Huamin Qu, Chair Professor at HKUST",
       featured: false,
@@ -290,7 +290,26 @@ export const siteData = {
       schoolIcon: "hkust"
     }
   ],
+  teachingItems: [
+    {
+      course: "COMP 6411D Data Visualization",
+      period: "2026.09 – 2026.12",
+      role: "Teaching Assistant",
+      institution: "HKUST"
+    },
+    {
+      course: "COMP4462 Data Visualization",
+      period: "2026.02 – 2026.05",
+      role: "Teaching Assistant",
+      institution: "HKUST"
+    }
+  ],
   awardItems: [
+    {
+      title: "First Class Honors",
+      issuer: "HKUST",
+      date: "2025"
+    },
     {
       title: "University’s Scholarship Scheme for Continuing Undergraduate Students",
       issuer: "HKUST",
@@ -300,6 +319,11 @@ export const siteData = {
       title: "HKSAR Government Scholarship Fund, Reaching Out Award",
       issuer: "HKSAR Government",
       date: "2023/24"
+    },
+    {
+      title: "Dean's List",
+      issuer: "HKUST",
+      date: "2021/22 – 2024/25"
     },
     {
       title: "Best Teamwork Individual Award in Student Partnership Co-creating Education 4.0 Program",

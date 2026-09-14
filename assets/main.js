@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260831-project-data-fix";
+import { siteData } from "./site-data.js?v=20260903-teaching-assistant";
 
 document.documentElement.classList.add("js-enhanced");
 
@@ -542,6 +542,43 @@ const renderEducation = () => {
   });
 };
 
+const renderTeaching = () => {
+  const container = document.getElementById("teaching-list");
+  if (!container) return;
+
+  container.innerHTML = "";
+  const list = document.createElement("ul");
+  list.className = "teaching-items";
+
+  (siteData.teachingItems ?? []).forEach((item) => {
+    const li = document.createElement("li");
+
+    const period = document.createElement("p");
+    period.className = "teaching-period";
+    period.textContent = item.period;
+
+    const course = document.createElement("h3");
+    course.textContent = item.course;
+
+    const role = document.createElement("p");
+    role.className = "teaching-role";
+    role.textContent = item.role;
+
+    li.append(period, course, role);
+
+    if (item.institution) {
+      const institution = document.createElement("p");
+      institution.className = "teaching-institution";
+      institution.textContent = item.institution;
+      li.appendChild(institution);
+    }
+
+    list.appendChild(li);
+  });
+
+  container.appendChild(list);
+};
+
 const renderAwards = () => {
   const container = document.getElementById("awards-list");
   container.innerHTML = "";
@@ -641,6 +678,7 @@ const init = () => {
   setupResearch();
   setupProjects();
   renderEducation();
+  renderTeaching();
   renderAwards();
   setupImageStack();
   setupNavigation();

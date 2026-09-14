@@ -26,7 +26,8 @@ const requiredAnchors = [
   "research",
   "experience",
   "education",
-  "awards"
+  "awards",
+  "teaching"
 ];
 
 requiredAnchors.forEach((anchor) => {
@@ -37,7 +38,7 @@ requiredAnchors.forEach((anchor) => {
 });
 
 const navAnchors = requiredAnchors.filter(
-  (anchor) => !["news", "awards"].includes(anchor)
+  (anchor) => !["news", "awards", "teaching"].includes(anchor)
 );
 
 navAnchors.forEach((anchor) => {
@@ -77,5 +78,7 @@ assert(Array.isArray(siteData.news), "News list must be an array");
 assert(Array.isArray(siteData.researchPapers), "Research papers must be an array");
 assert(siteData.researchPapers.length >= 1, "Research section needs at least one paper");
 assert(siteData.experienceItems.length >= 3, "Experience list must include at least three items");
+assert(Array.isArray(siteData.teachingItems), "Teaching list must be an array");
+assert(siteData.teachingItems.length >= 2, "Teaching list must include at least two items");
 
 console.log("Validation passed for static site structure.");
