@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260914-featured-preview";
+import { siteData } from "./site-data.js?v=20260925-publication-status";
 
 document.documentElement.classList.add("js-enhanced");
 
