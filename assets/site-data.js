@@ -111,7 +111,7 @@ export const siteData = {
         "Wong Kam-Kwai"
       ],
       highlightedAuthors: ["Yi-Lin YE"],
-      venue: "UIST 2026",
+      venue: "To appear at UIST 2026",
       date: "2026",
       type: "conference",
       typeLabel: "Conference",
