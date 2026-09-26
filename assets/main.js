@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260925-publication-status";
+import { siteData } from "./site-data.js?v=20260926-mphil-date";
 
 document.documentElement.classList.add("js-enhanced");
 
@@ -233,6 +233,7 @@ const renderHero = () => {
   setText("profile-kicker", siteData.profile.kicker);
   setText("hero-title", siteData.profile.name);
   setText("profile-role", siteData.profile.role);
+  setText("profile-interests", siteData.profile.interests);
   const summary = document.getElementById("profile-summary");
   if (summary) {
     summary.innerHTML = siteData.profile.summaryHtml ?? siteData.profile.summary;

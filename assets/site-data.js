@@ -6,7 +6,8 @@ export const siteData = {
     summary:
       "I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, VisLab, supervised by Prof. Huamin Qu. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.",
     summaryHtml:
-      'I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a>, supervised by <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.'
+      'I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a>, supervised by <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.',
+    interests: "I enjoy photographing, dancing, climbing, skiing, and swimming in my free time."
   },
   availabilityNotice:
     "I am on the job market and actively looking for PhD opportunities from September 2027.",
@@ -111,7 +112,7 @@ export const siteData = {
         "Wong Kam-Kwai"
       ],
       highlightedAuthors: ["Yi-Lin YE"],
-      venue: "To appear at UIST 2026",
+      venue: "To appear in UIST 2026",
       date: "2026",
       type: "conference",
       typeLabel: "Conference",
@@ -271,7 +272,7 @@ export const siteData = {
     {
       degree: "MPhil in Computer Science and Engineering",
       institution: "The Hong Kong University of Science and Technology",
-      period: "09/2025 – 08/2027 [anticipated]",
+      period: "09/2025 – 07/2027 [anticipated]",
       location: "Hong Kong",
       schoolIcon: "hkust"
     },
