@@ -2,12 +2,13 @@ export const siteData = {
   profile: {
     name: "YE YILIN",
     kicker: "叶 伊霖",
-    role: "MPhil in CSE at HKUST",
+    role: "MPhil in Computer Science and Engineering",
+    affiliation: "The Hong Kong University of Science and Technology",
     summary:
-      "I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, VisLab, supervised by Prof. Huamin Qu. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.",
+      "I am an MPhil student at the Hong Kong University of Science and Technology, working in VisLab under the supervision of Prof. Huamin Qu. My research interests span human-AI collaboration, AR/VR, and data visualization. I previously earned a BSc in Data Science and Technology with a minor in Business from the same university.",
     summaryHtml:
-      'I am an MPhil student in Computer Science and Engineering at the Hong Kong University of Science and Technology, <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a>, supervised by <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests lie at the intersection of data visualization, HCI, AI, and AR/VR, following a BSc in Data Science and Technology with a minor in Business at HKUST.',
-    interests: "I enjoy photographing, dancing, climbing, skiing, and swimming in my free time."
+      'I am an MPhil student at the Hong Kong University of Science and Technology, working in <a href="http://vis.cse.ust.hk/index.html" target="_blank" rel="noreferrer">VisLab</a> under the supervision of <a href="http://huamin.org" target="_blank" rel="noreferrer">Prof. Huamin Qu</a>. My research interests span human-AI collaboration, AR/VR, and data visualization. I previously earned a BSc in Data Science and Technology with a minor in Business from the same university.',
+    interests: "Outside research, I enjoy photography, dancing, climbing, skiing, and swimming."
   },
   availabilityNotice:
     "I am on the job market and actively looking for PhD opportunities from September 2027.",
@@ -16,46 +17,40 @@ export const siteData = {
       label: "Email",
       tooltipLabel: "Send email",
       icon: "email",
-      href: "mailto:yyeaz@connect.ust.hk",
-      kind: "primary"
+      href: "mailto:yyeaz@connect.ust.hk"
     },
     {
       label: "CV",
       icon: "cv",
       href: "/assets/files/resume.pdf",
-      kind: "secondary",
       hidden: true
     },
     {
       label: "GitHub",
       icon: "github",
       href: "https://github.com/ylyeivonnnne",
-      kind: "secondary",
       external: true
     },
     {
       label: "LinkedIn",
       icon: "linkedin",
       href: "https://www.linkedin.com/in/yilin-ye-811ab0252/",
-      kind: "secondary",
       external: true
     },
     {
       label: "Google Scholar",
       icon: "scholar",
       href: "https://scholar.google.com/citations?hl=en&user=fhwz3soAAAAJ",
-      kind: "secondary",
       external: true
     },
     {
       label: "ORCID",
       icon: "orcid",
       href: "https://orcid.org/my-orcid?orcid=0009-0000-9986-4420",
-      kind: "secondary",
       external: true
     }
   ],
-  researchFocus: [],
+  researchFocus: ["Human-AI Collaboration", "AR/VR", "Data Visualization"],
   news: [
     {
       date: "08/2026",
@@ -171,20 +166,9 @@ export const siteData = {
       location: "Hong Kong",
       supervisor: "Huamin Qu, Chair Professor at HKUST",
       featured: true,
-      image: {
-        src: "/assets/images/paper-placeholder.svg",
-        alt: "Project preview placeholder"
-      },
       tags: ["VR", "Education", "LLM"],
       description:
-        "We developed a VR-based English learning system that leverages LLMs to provide real-time feedback and assistance to students.",
-      // links: [
-      //   {
-      //     label: "DOI",
-      //     href: "https://doi.org/10.48550/arXiv.2506.00855",
-      //     external: true
-      //   }
-      // ]
+        "We developed a VR-based English learning system that leverages LLMs to provide real-time feedback and assistance to students."
     },
     {
       title: "Digital Twin",
@@ -194,19 +178,12 @@ export const siteData = {
       supervisor: "Huamin Qu, Chair Professor at HKUST",
       featured: true,
       image: {
-        src: "/assets/images/paper-placeholder.svg",
-        alt: "Project preview placeholder"
+        src: "/assets/images/digital-twin-cover.png",
+        alt: "Digital Twin project cover showing the TRS flood demo waterfront environment"
       },
       tags: ["VR"],
       description:
-        "Developing a VR digital twin game on typhoon for public about TKO waterfront.",
-      // links: [
-      //   {
-      //     label: "DOI",
-      //     href: "https://doi.org/10.48550/arXiv.2506.00855",
-      //     external: true
-      //   }
-      // ]
+        "Developing a VR digital twin game on typhoon for public about TKO waterfront."
     },
     {
       title: "Towards Large-Scale Vision-Language Models in Medicine",
@@ -215,10 +192,6 @@ export const siteData = {
       location: "Hong Kong",
       supervisor: "Hao Chen, Assistant Professor at HKUST",
       featured: true,
-      image: {
-        src: "/assets/images/paper-placeholder.svg",
-        alt: "Project preview placeholder"
-      },
       tags: ["Machine Learning", "RAG", "LLM"],
       description:
         "Developed a multimodal RAG system for a generalist foundation model in pathology and radiology for VQA and radiology report generation tasks.",
@@ -237,10 +210,6 @@ export const siteData = {
       location: "Hong Kong",
       supervisor: "Raymond Chi-Wing Wong, Professor at HKUST",
       featured: false,
-      image: {
-        src: "/assets/images/paper-placeholder.svg",
-        alt: "Project preview placeholder"
-      },
       tags: ["Machine Learning", "Recommendation Systems"],
       description:
         "Implemented the Neural Attentive Session-based Recommendation Model (NARM) for session-based recommendation and user preference prediction."
@@ -252,10 +221,6 @@ export const siteData = {
       location: "Hong Kong",
       supervisor: "Minhao Cheng, Assistant Professor at HKUST",
       featured: false,
-      image: {
-        src: "/assets/images/paper-placeholder.svg",
-        alt: "Project preview placeholder"
-      },
       tags: ["Machine Learning", "NLP"],
       description:
         "Worked on experimental design and result analysis for a framework that traces the origin of AI-generated content from large language models.",

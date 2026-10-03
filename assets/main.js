@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260926-mphil-date";
+import { siteData } from "./site-data.js?v=20261002-profile-expanded";
 
 document.documentElement.classList.add("js-enhanced");
 
@@ -233,6 +233,7 @@ const renderHero = () => {
   setText("profile-kicker", siteData.profile.kicker);
   setText("hero-title", siteData.profile.name);
   setText("profile-role", siteData.profile.role);
+  setText("profile-affiliation", siteData.profile.affiliation);
   setText("profile-interests", siteData.profile.interests);
   const summary = document.getElementById("profile-summary");
   if (summary) {
@@ -254,12 +255,11 @@ const renderHero = () => {
   heroLinks.innerHTML = "";
   siteData.heroLinks.filter((link) => !link.hidden).forEach((link) => {
     const a = document.createElement("a");
-    a.className = `button button-${link.kind ?? "secondary"}`;
+    a.className = "button";
     a.href = link.href;
     if (link.icon && icons[link.icon]) {
       const tooltipLabel = link.tooltipLabel ?? link.label;
-      a.classList.add("button-icon");
-      a.classList.add(`button-icon-${link.icon}`);
+      a.classList.add("button-icon", `button-icon-${link.icon}`);
       a.setAttribute("aria-label", tooltipLabel);
       a.title = tooltipLabel;
       a.innerHTML = `${icons[link.icon]}<span class="visually-hidden">${tooltipLabel}</span>`;
@@ -308,6 +308,7 @@ const renderPublicationFilters = () => {
     button.addEventListener("click", () => {
       publicationState.filter = filter.value;
       renderPublications();
+      container.querySelector(".publication-filter.is-active")?.focus({ preventScroll: true });
     });
     container.appendChild(button);
   });
@@ -330,6 +331,7 @@ const renderProjectFilters = () => {
     button.addEventListener("click", () => {
       projectState.filter = filter.value;
       renderExperience();
+      container.querySelector(".publication-filter.is-active")?.focus({ preventScroll: true });
     });
     container.appendChild(button);
   });
@@ -478,14 +480,19 @@ const renderExperience = () => {
     period.textContent = item.period;
     meta.append(org, period);
 
-    const figure = document.createElement("figure");
-    figure.className = "project-figure";
-    const image = document.createElement("img");
-    image.src = item.image?.src ?? "/assets/images/paper-placeholder.svg";
-    image.alt = item.image?.alt ?? "";
-    image.loading = "lazy";
-    image.decoding = "async";
-    figure.appendChild(image);
+    article.appendChild(meta);
+    if (item.image?.src) {
+      article.classList.add("has-image");
+      const figure = document.createElement("figure");
+      figure.className = "project-figure";
+      const image = document.createElement("img");
+      image.src = item.image.src;
+      image.alt = item.image.alt ?? "";
+      image.loading = "lazy";
+      image.decoding = "async";
+      figure.appendChild(image);
+      article.appendChild(figure);
+    }
 
     const body = document.createElement("div");
     body.className = "project-body";
@@ -515,7 +522,7 @@ const renderExperience = () => {
       body.appendChild(tags);
     }
 
-    article.append(meta, figure, body);
+    article.appendChild(body);
     container.appendChild(article);
   });
 };
