@@ -1126,58 +1126,42 @@ h1 {
 }
 
 .experience-grid {
+  --experience-date-width: 12.5rem;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-areas: "education awards" "teaching awards";
-  grid-template-rows: auto 1fr;
-  gap: clamp(0.85rem, 1.15vw, 1rem);
-  align-items: stretch;
-  width: 100%;
-  margin-inline: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
   padding-top: 4.25rem;
 }
 
-.experience-grid .section {
-  padding-top: 0;
-}
-
-.experience-grid #education {
-  grid-area: education;
-}
-
-.experience-grid #teaching {
-  grid-area: teaching;
-}
-
-.experience-grid #awards {
-  grid-area: awards;
-}
-
 .experience-grid .split-section {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  padding: 0.82rem 0.86rem 0.88rem;
-  border: 1px solid var(--news-panel-border);
-  border-radius: var(--panel-radius);
-  background: var(--news-panel-bg);
-  box-shadow: var(--news-panel-shadow);
-  backdrop-filter: blur(14px);
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+  padding: 0;
 }
 
 .experience-grid .split-heading {
-  margin-bottom: 0.58rem;
+  gap: 0.65rem;
+  margin: 0;
 }
 
 .experience-grid .section-label {
-  font-size: 0.62rem;
-  line-height: 1.2;
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .experience-grid .split-heading h2 {
   max-width: none;
-  font-size: clamp(1rem, 0.9rem + 0.25vw, 1.16rem);
-  line-height: 1.08;
+  font-size: clamp(1.5rem, 1.25rem + 0.5vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.education-list,
+.teaching-list,
+.awards-list {
+  min-width: 0;
 }
 
 .education-list {
@@ -1186,9 +1170,8 @@ h1 {
 }
 
 .education-item {
-  position: relative;
   display: block;
-  padding: 0.58rem 0 0.62rem;
+  padding: 0.8rem 0;
 }
 
 .education-period,
@@ -1197,23 +1180,27 @@ h1 {
 }
 
 .education-school {
-  margin-top: 0.34rem;
+  grid-area: school;
   min-width: 0;
 }
 
 .education-copy {
+  display: grid;
+  grid-template-columns: var(--experience-date-width) minmax(0, 1fr);
+  grid-template-areas: "date school" "date degree";
+  gap: 0.2rem 1.25rem;
+  align-items: start;
   min-width: 0;
 }
 
 .education-icon {
-  position: absolute;
-  top: 0.58rem;
-  left: 0;
   display: inline-flex;
+  flex: none;
+  align-items: center;
   justify-content: center;
-  width: 1.25rem;
+  width: 1.75rem;
   min-width: 0;
-  height: 1.2rem;
+  height: 1.75rem;
   margin: 0;
 }
 
@@ -1224,59 +1211,42 @@ h1 {
 }
 
 .education-icon-eth {
-  align-items: center;
-  height: 0.56rem;
-  top: 0.77rem;
   color: var(--ink);
 }
 
 .education-period {
+  grid-area: date;
   display: flex;
-  align-items: center;
-  min-height: 1.2rem;
-  padding-left: 1.72rem;
-  font-size: 0.72rem;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
   color: var(--accent-strong);
   font-weight: 600;
-  line-height: 1.3;
-  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.education-date {
+  flex: 1;
+  min-width: 0;
 }
 
 .education-institution {
-  font-size: 0.8rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  line-height: 1.28;
+  line-height: 1.5;
 }
 
 .education-item h3 {
-  margin-top: 0.32rem;
-  font-size: 0.8rem;
-  line-height: 1.28;
+  grid-area: degree;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--muted);
   letter-spacing: 0;
 }
 
 .awards-list {
-  flex: 1;
-  min-height: 0;
   padding: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
-}
-
-.awards-list::-webkit-scrollbar {
-  width: 0.42rem;
-}
-
-.awards-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.awards-list::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--muted) 28%, transparent);
 }
 
 .award-list {
@@ -1286,7 +1256,12 @@ h1 {
 }
 
 .award-list li {
-  padding: 0.56rem 0 0.6rem;
+  display: grid;
+  grid-template-columns: var(--experience-date-width) minmax(0, 1fr);
+  grid-template-areas: "date title" "date issuer";
+  gap: 0.2rem 1.25rem;
+  align-items: start;
+  padding: 0.7rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1301,29 +1276,26 @@ h1 {
 }
 
 .award-date {
+  grid-area: date;
   color: var(--accent-strong);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .award-title {
-  margin-top: 0.24rem;
+  grid-area: title;
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  line-height: 1.28;
+  line-height: 1.5;
 }
 
 .award-issuer {
-  margin-top: 0.12rem;
+  grid-area: issuer;
   color: var(--muted);
-  font-size: 0.74rem;
-  line-height: 1.35;
-}
-
-.teaching-section {
-  align-self: stretch;
+  font-size: 0.9375rem;
+  line-height: 1.5;
 }
 
 .teaching-list {
@@ -1339,8 +1311,13 @@ h1 {
 }
 
 .teaching-items li {
+  display: grid;
+  grid-template-columns: var(--experience-date-width) minmax(0, 1fr);
+  grid-template-areas: "date course" "date role";
+  gap: 0.2rem 1.25rem;
+  align-items: start;
   min-width: 0;
-  padding: 0.56rem 0 0.6rem;
+  padding: 0.8rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1349,38 +1326,33 @@ h1 {
 }
 
 .teaching-period,
-.teaching-role,
-.teaching-institution {
+.teaching-role {
   margin: 0;
 }
 
 .teaching-period {
+  grid-area: date;
   color: var(--accent-strong);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .teaching-items h3 {
-  margin: 0.26rem 0 0;
+  grid-area: course;
+  margin: 0;
   color: var(--ink);
-  font-size: 0.8rem;
-  line-height: 1.28;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.5;
   letter-spacing: 0;
 }
 
 .teaching-role {
-  margin-top: 0.14rem;
+  grid-area: role;
   color: var(--muted);
-  font-size: 0.74rem;
-  line-height: 1.35;
-}
-
-.teaching-institution {
-  margin-top: 0.08rem;
-  color: var(--muted);
-  font-size: 0.72rem;
-  line-height: 1.3;
+  font-size: 0.9375rem;
+  line-height: 1.5;
 }
 
 html.js-enhanced .section-observed {
@@ -1396,27 +1368,12 @@ html.js-enhanced .section-observed.is-visible {
   transform: translateY(0);
 }
 
-@media (max-width: 980px) {
-  .experience-grid {
-    width: 100%;
-    margin-inline: 0;
-    grid-template-columns: 1fr;
-    grid-template-areas: "education" "teaching" "awards";
-    grid-template-rows: auto;
-    gap: 1.25rem;
-  }
-
-  .experience-grid .split-section {
-    min-height: 0;
-  }
-
-  .awards-list {
-    flex: none;
-    max-height: clamp(12rem, 42svh, 18rem);
-  }
-}
-
 @media (max-width: 920px) {
+  .experience-grid .split-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
   .site-header {
     padding-inline: 1rem;
   }
@@ -1532,6 +1489,24 @@ html.js-enhanced .section-observed.is-visible {
 }
 
 @media (max-width: 680px) {
+  .education-copy,
+  .award-list li,
+  .teaching-items li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .education-copy {
+    grid-template-areas: "date" "school" "degree";
+  }
+
+  .award-list li {
+    grid-template-areas: "date" "title" "issuer";
+  }
+
+  .teaching-items li {
+    grid-template-areas: "date" "course" "role";
+  }
+
   .site-header {
     padding-inline: 0.6rem;
   }
@@ -1698,27 +1673,6 @@ html.js-enhanced .section-observed.is-visible {
 
   .publication-filter-group::-webkit-scrollbar {
     display: none;
-  }
-
-  .education-item {
-    grid-template-columns: 2.55rem minmax(0, 1fr);
-    padding: 0.82rem 0;
-  }
-
-  .education-icon {
-    height: 1.25rem;
-  }
-
-  .education-icon-eth {
-    height: 0.58rem;
-  }
-
-  .education-period {
-    white-space: normal;
-  }
-
-  .teaching-items li {
-    padding-right: 0;
   }
 
   .availability-banner,

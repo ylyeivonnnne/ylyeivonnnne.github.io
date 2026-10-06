@@ -535,9 +535,11 @@ const renderEducation = () => {
     article.className = "education-item";
     const icon = item.schoolIcon ? schoolIcons[item.schoolIcon] ?? "" : "";
     article.innerHTML = `
-      ${icon ? `<span class="education-icon education-icon-${item.schoolIcon}">${icon}</span>` : '<span class="education-icon" aria-hidden="true"></span>'}
       <div class="education-copy">
-        <p class="education-period">${item.period}</p>
+        <p class="education-period">
+          <span class="education-date">${item.period}</span>
+          ${icon ? `<span class="education-icon education-icon-${item.schoolIcon}">${icon}</span>` : ""}
+        </p>
         <div class="education-school">
           <div>
             <p class="education-institution">${item.institution}</p>
@@ -570,16 +572,9 @@ const renderTeaching = () => {
 
     const role = document.createElement("p");
     role.className = "teaching-role";
-    role.textContent = item.role;
+    role.textContent = item.institution ? `${item.role} · ${item.institution}` : item.role;
 
     li.append(period, course, role);
-
-    if (item.institution) {
-      const institution = document.createElement("p");
-      institution.className = "teaching-institution";
-      institution.textContent = item.institution;
-      li.appendChild(institution);
-    }
 
     list.appendChild(li);
   });
